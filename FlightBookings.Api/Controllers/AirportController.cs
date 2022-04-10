@@ -21,7 +21,7 @@ namespace FlightBookings.Api.Controllers
         public IActionResult Post(CreateAirportRequest airportRequest)
         {
             var result = service.Add(airportRequest);
-            var uri = Request.Scheme + "://" + Request.Host + "/" + Request.Path + "/" + result.Id;
+            var uri = Request.Scheme + "://" + Request.Host + Request.Path + "/" + result.Id;
             return Created(uri, result);
         }
 
