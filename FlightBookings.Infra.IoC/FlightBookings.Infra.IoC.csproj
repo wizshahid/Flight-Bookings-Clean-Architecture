@@ -14,7 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\FlightBookings.Application\FlightBookings.Application.csproj" />
     <ProjectReference Include="..\FlightBookings.Domain\FlightBookings.Domain.csproj" />
-    <ProjectReference Include="..\FlightBookings.Infra.Data\FlightBookings.Infra.Data.csproj" />
+    <ProjectReference Include="..\FlightBookings.Infra.Data\FlightBookings.Infra.csproj" />
   </ItemGroup>
 
 </Project>

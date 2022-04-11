@@ -22,4 +22,14 @@ namespace FlightBookings.Application.AutoMapper
             CreateMap<Airport, AirportResponse>();
         }
     }
+
+    internal class AirlineMap : Profile
+    {
+        public AirlineMap()
+        {
+            CreateMap<CreateAirlineRequest, Airline>();
+            CreateMap<UpdateAirlineRequest, Airline>();
+            CreateMap<Airline, AirlineResponse>();
+        }
+    }
 }

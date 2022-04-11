@@ -11,4 +11,10 @@
         User = 0,
         Admin = 1,
     }
+
+    public enum AirlineStatus : byte
+    {
+        Active = 0,
+        Inactive = 1,
+    }
 }

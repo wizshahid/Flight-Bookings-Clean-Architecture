@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FlightBookings.Domain.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace FlightBookings.Domain.Entities
 {
-    internal class Airline
+    public class Airline
     {
+        public Guid Id { get; set; }
+
+        [Required]
+        public string Name { get; set; } = null!;
+
+        public string? ContactNo { get; set; }
+
+        public string? ContactAddress { get; set; }
+
+        public string? LogoPath { get; set; }
+
+        public AirlineStatus Status { get; set; }
     }
 }

@@ -12,5 +12,6 @@ namespace FlightBookings.Infra.Data.Context
 
         public DbSet<User> Users { get; set; } = null!;
         public DbSet<Airport> Airports { get; set; } = null!;
+        public DbSet<Airline> Airlines { get; set; } = null!;
     }
 }

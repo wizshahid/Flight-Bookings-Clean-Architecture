@@ -13,15 +13,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 
-builder.Services.RegisterServices();
+builder.Services.RegisterServices(builder.Configuration, builder.Environment.WebRootPath);
 builder.Services.AddSwagger()
                 .AddJwtAuthentication(builder.Configuration);
 
-
-builder.Services.AddDbContext<FlightBookingsDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("FlightBookingsConnection"));
-});
 
 var app = builder.Build();
 

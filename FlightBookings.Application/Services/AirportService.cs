@@ -22,7 +22,7 @@ namespace FlightBookings.Application.Services
 
         public AirportResponse Add(CreateAirportRequest airportRequest)
         {
-            if (repository.GetAll().Any(x => x.Name == airportRequest.Name))
+            if (repository.Any(x => x.Name == airportRequest.Name))
                 throw new AppException($"Airport with name {{{airportRequest.Name}}} already exists");
 
             var airport = mapper.Map<Airport>(airportRequest);
