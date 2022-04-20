@@ -4,23 +4,9 @@ using FlightBookings.Infra.Data.Context;
 
 namespace FlightBookings.Infra.Data.Repositories;
 
-internal class UserRepository : IUserRepository
+internal class UserRepository : BaseRepository<User>, IUserRepository
 {
-    private readonly FlightBookingsDbContext _context;
-
-    public UserRepository(FlightBookingsDbContext context)
+    public UserRepository(FlightBookingsDbContext context) : base(context)
     {
-        _context = context;
-    }
-
-    public int Add(User user)
-    {
-        _context.Add(user);
-        return _context.SaveChanges();
-    }
-
-    public IQueryable<User> GetAll()
-    {
-        return _context.Users;
     }
 }

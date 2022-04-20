@@ -2,9 +2,6 @@
 
 namespace FlightBookings.Domain.Interfaces;
 
-public interface IUserRepository 
+public interface IUserRepository : IBaseRepository<User>
 {
-    public int Add(User user);
-
-    public IQueryable<User> GetAll();
 }

@@ -30,7 +30,7 @@ public class UserService : IUserService
 
     public AuthResponse Login(LoginRequest model)
     {
-        var user = repository.GetAll().FirstOrDefault(x => x.Username.Equals(model.Username));
+        var user = repository.FirstOrDefault(x => x.Username.Equals(model.Username));
 
         if (user == null)
             throw new AppException("Username does not exist");
@@ -43,6 +43,12 @@ public class UserService : IUserService
 
     public void SignUp(SignUpRequest model)
     {
+        if (repository.Any(x => x.Username == model.Username))
+            throw new AppException("Username already exists");
+
+        if (repository.Any(x => x.Email == model.Email))
+            throw new AppException("Email already exists");
+
         var user = mapper.Map<User>(model);
         user.Salt = Crypt.GenerateSalt();
         user.PasswordHash = Crypt.HashPassword(model.Password, user.Salt);
