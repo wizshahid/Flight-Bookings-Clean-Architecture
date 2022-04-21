@@ -59,4 +59,20 @@ public static class DependenyContainer
 
         return services;
     }
+
+    public static IServiceCollection AddAppCors(this IServiceCollection services)
+    {
+        services.AddCors(options =>
+        {
+            options.AddPolicy("AllowOrigin",
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200")
+                           .AllowAnyHeader()
+                           .AllowAnyMethod();
+                });
+        });
+
+        return services;
+    }
 }

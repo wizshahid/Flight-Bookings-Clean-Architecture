@@ -17,4 +17,6 @@ public class Airline
     public string? LogoPath { get; set; }
 
     public AirlineStatus Status { get; set; }
+
+    public ICollection<Inventory>? Inventories { get; set; }
 }

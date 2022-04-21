@@ -32,3 +32,16 @@ internal class AirlineMap : Profile
         CreateMap<Airline, AirlineResponse>();
     }
 }
+
+internal class InventoryMap : Profile
+{
+    public InventoryMap()
+    {
+        CreateMap<CreateInventoryRequest, Inventory>();
+        CreateMap<UpdateInventoryRequest, Inventory>();
+        CreateMap<Inventory, InventoryResponse>()
+            .ForMember(x => x.FromPlace, y => y.MapFrom(z => z.FromPlace.Name))
+            .ForMember(x => x.ToPlace, y => y.MapFrom(z => z.ToPlace.Name))
+            .ForMember(x => x.AirlineName, y => y.MapFrom(z => z.Airline.Name));
+    }
+}

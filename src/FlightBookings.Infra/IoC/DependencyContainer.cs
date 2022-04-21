@@ -23,12 +23,14 @@ public static class DependencyContainer
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IAirportRepository, AirportRepository>();
         services.AddScoped<IAirlineRepository, AirlineRepository>();
+        services.AddScoped<IInventoryRepository, InventoryRepository>();
         services.AddSingleton<IFileService>(new FileService(webRootPath));
 
         //Application layer dependencies
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IAirportService, AirportService>();
         services.AddScoped<IAirlineService, AirlineService>();
+        services.AddScoped<IInventoryRepository, InventoryRepository>();
 
         services.AddAutoMapper(typeof(IAutoMapperMarker));
 
